@@ -1,0 +1,120 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.hero{
+	height: 100vh;
+	width: 100%;
+	background-image: url(sky.jpg);
+	background-size: cover;
+	background-position: center;
+	position: relative; /*normal flow of page, top, left, right, bottom worked in it*/
+	overflow: hidden; /*it will define whether to clip content or add scrollbars
+	if content is too big to fit in specified area, only works for block elements*/
+}
+
+.highway{
+	height: 200px;
+	width: 500%;
+	display: block;
+	background-image: url(road.jpg);
+	position: absolute;
+	bottom: 0;      /*The bottom property affects the vertical position of a positioned element*/
+	/*The top property affects the vertical position of a positioned element.*/
+
+	left: 0; 		/*The left property affects the horizontal position of a positioned element.*/
+	right: 0; 		/*the right property specifies the distance between the element's right edge and the right edge of its containing block*/
+	z-index: 1;     /*It is used to set the layer of elements, or can say order of  element*/
+	background-repeat: repeat-x; /*image will repeated horizontally*/
+	animation: highway 5s linear infinite;   /*animation-name animation-duration animation-timing-function animation-iteration-count
+	linear - Specifies an animation with the same speed from start to end*/
+}
+
+@keyframes highway{
+	100%{
+		transform: translateX(-3400px);
+	}
+}
+
+.city{
+	height: 250px;
+	width: 500%;
+	background-image: url(city.png);
+	position: absolute; /* it means the element is positioned to the nearest positioned anchester(parent),
+	if there is no parent it will follow normal position according to the browser*/
+	bottom: 200px;
+	left: 0;
+	right: 0;
+	display: block;
+	z-index: 1;
+	background-repeat: repeat-x;
+	animation: city 20s linear infinite;
+}
+
+@keyframes  city{  /*animation-name*/
+
+/*The @keyframes CSS at-rule controls
+the intermediate steps in a CSS animation sequence by defining styles for keyframes (or waypoints) along the animation sequence
+This gives more control over the intermediate steps of the animation sequence than transitions.*/
+
+	100%{         						/*keyframe-selector*/
+		transform: translateX(-1400px); /*css-styles*/
+	}
+}
+
+.car{
+	width: 400px;
+	left: 50%;
+	bottom:  100px;
+	transform: translateX(-50%);
+	position: absolute;
+	z-index: 2;
+}
+
+.car img{
+	width: 100%;
+	animation: car 1s linear infinite
+}
+
+@keyframes car{
+	100%{
+		transform: translateY(-1px); /*The translateY() CSS function repositions an element vertically on the 2D plane.*/
+	}
+	50%{
+		transform: translateY(1px);
+	}
+	0%{
+		transform: translateY(-1px);
+	}
+}
+
+.wheel{
+	left: 50%;
+	bottom: 178px;
+	transform: translateX(-50%);
+	position: absolute;
+	z-index: 2;
+}
+
+.wheel img{
+	width: 72px;
+	height: 72px;
+	animation: wheel 1s linear infinite;
+}
+
+.back-wheel{
+	left: -165px;
+	position: absolute;
+}
+
+.front-wheel{
+	left: 80px;
+	position: absolute;
+}
+
+@keyframes wheel{
+	100%{
+		transform: rotate(360deg);
+	}
+}
